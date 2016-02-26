@@ -54,6 +54,27 @@
             function (ec) {
                 var myChart = ec.init(document.getElementById('main'));
                
+
+                var zrColor = require('zrender/tool/color');
+var colorList = [
+  '#ff7f50','#87cefa','#da70d6','#32cd32','#6495ed',
+  '#ff69b4','#ba55d3','#cd5c5c','#ffa500','#40e0d0'
+];
+var itemStyle = {
+    normal: {
+        color: function(params) {
+          if (1) {
+            // for legend
+            return zrColor.lift(
+              colorList[0], params.seriesIndex * 0.1
+            );
+          }
+          
+        }
+    }
+};
+
+
                 var option = {
                         
                     grid :{
@@ -80,16 +101,7 @@
                     legend: {
                         data:['最高气温','最低气温']
                     },
-                    toolbox: {
-                        show : true,
-                        feature : {
-                            mark : {show: true},
-                            dataView : {show: true, readOnly: false},
-                            magicType : {show: true, type: ['line', 'bar']},
-                            restore : {show: true},
-                            saveAsImage : {show: true}
-                        }
-                    },
+                    
                     calculable : true,
                     xAxis : [
                         {
@@ -111,7 +123,7 @@
                             name:'最高气温',
                             type:'line',
                             data:[11, 11, 15, 13, 12, 13, 10],
-                           
+                            itemStyle: itemStyle,
                             markLine : {
                                 data : [
                                     {type : 'average', name: '平均值'}
@@ -125,14 +137,7 @@
                             symbol: 'emptyCircle',  // 拐点图形类型
                             symbolSize: 3,          // 拐点图形大小
                             showAllSymbol : true,          
-                            itemStyle : {
-                                normal : {
-                                    color :　'#333',
-                                    lineStyle : {
-                                        color : '#333'
-                                    }
-                                }
-                            },
+                            itemStyle: itemStyle,
                             markLine : {
                                 itemStyle : {
                                     normal : {
