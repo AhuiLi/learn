@@ -1,2 +1,2 @@
-# mywork
-mywork some test or work
+# Learn
+Learn and practice,to improve myself.
