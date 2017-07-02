@@ -35,4 +35,12 @@ f = fib(6)
 for x in f:
     print('generator x:',x)
 
-# 练习
+# 练习（杨辉三角）
+#          1
+#        1   1
+#      1   2   1
+#    1   3   3   1
+#  1   4   6   4   1
+#1   5   10  10  5   1
+def triangles():
+    while true:
